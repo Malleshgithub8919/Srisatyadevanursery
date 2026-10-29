@@ -55,7 +55,7 @@ export default function Home() {
       <div className="container intro-grid">
         <div className="intro-label"><span className="eyebrow">WELCOME TO OUR NURSERY</span><span className="vertical-line"></span><span className="muted-small">Growing good things</span></div>
         <div className="intro-copy"><span className="nursery-native-name">{business.nativeName}</span><h2>Every green corner<br/>starts with <em>one plant.</em></h2><p>Whether you're refreshing a room, creating a backyard garden or planning a larger plantation, discover plants that help your space feel more alive.</p><Link className="text-link" to="/about">Get to know us <ArrowUpRight size={17}/></Link></div>
-        <div className="intro-image-wrap"><img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1100&q=85" alt="Sunlight passing through a lush green garden" loading="lazy"/><div className="image-caption"><Leaf size={17}/><span>Make room for green.</span></div></div>
+        <div className="intro-image-wrap"><img src="/images/nursery-home-feature.png" alt="Rows of plants and nursery growing areas at Sri Satyadeva Nursery" loading="lazy"/><div className="image-caption"><Leaf size={17}/><span>Make room for green.</span></div></div>
       </div>
     </section>
 
