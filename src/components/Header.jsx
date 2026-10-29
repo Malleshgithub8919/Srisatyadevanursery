@@ -21,7 +21,7 @@ export default function Header() {
       <header className="site-header">
         <div className="container nav-wrap">
           <Link to="/" className="brand" onClick={() => setOpen(false)} aria-label={business.name}>
-            <img className="brand-logo" src="/images/sri-satyadeva-logo.png" alt="" />
+            <img className="brand-logo" src="/images/nursery-logo-new.jpeg" alt="" />
           </Link>
           <button className="mobile-menu" onClick={() => setOpen(!open)} aria-label={open ? 'Close menu' : 'Open menu'}>{open ? <X /> : <Menu />}</button>
           <nav className={open ? 'main-nav is-open' : 'main-nav'}>

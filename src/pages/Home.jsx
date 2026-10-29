@@ -36,9 +36,9 @@ export default function Home() {
       <div className="hero-slides" aria-hidden="true">{heroSlides.map((slide, index) => <img className={`hero-slide${index === activeSlide ? ' is-active' : ''}`} key={slide.src} src={slide.src} alt="" loading={index === 0 ? 'eager' : 'lazy'}/>)}</div>
       <div className="hero-shade"></div>
       <div className="container hero-content">
-        <div className="hero-kicker"><span></span> {business.type} · Since 1950</div>
+        <div className="hero-kicker"><span></span> {business.type} · 150-acre nursery</div>
         <h1>Grow your green<br/><em>world.</em></h1>
-        <p>Thoughtfully chosen plants to bring life, calm and natural beauty to your home, garden and growing spaces.</p>
+        <p>Explore quality flowering, fruit, ornamental, avenue, indoor and outdoor plants for homes, gardens, landscaping projects, commercial spaces and wholesale. Visit our 150-acre nursery in Kadiyam to discuss your requirements.</p>
         <div className="hero-actions"><Link className="button button-cream" to="/plants">Explore plants <ArrowUpRight size={18}/></Link><Link className="button button-glass" to="/order">Enquire about bulk orders</Link></div>
         <div className="hero-note"><span className="hero-note-icon"><Leaf size={18}/></span><span><strong>{business.rating} ★ · {business.reviewCount} Google reviews</strong><small>{business.proprietor}</small></span></div>
       </div>
