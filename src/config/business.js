@@ -13,6 +13,7 @@ export const business = {
   address: 'Kadiyapulanka, Veeravaram Road, Kadiam, Andhra Pradesh 533126, India',
   openingHours: 'Mon - Sat: 8:00 AM - 6:00 PM',
   email: 'srisatyadevanursery150acers@gmail.com',
+  website: 'https://srisatyadevanursery150acers.com/',
   socialLinks: {
     instagram: 'https://www.instagram.com/satyadevanursery/',
     facebook: 'https://www.facebook.com/satyadevanursery',

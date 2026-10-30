@@ -3,6 +3,11 @@ import { X, ArrowUpRight } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
 const photos = [
+  { src: '/images/sri-satyadeva-nursery-aerial.png', title: 'Sri Satyadeva Nursery from above', type: 'Our nursery' },
+  { src: '/images/kadiyam-flowering-plants.png', title: 'Colourful flowering plants', type: 'Flowering plants' },
+  { src: '/images/kadiyam-fruit-plants.png', title: 'Fruit plants growing at the nursery', type: 'Fruit plants' },
+  { src: '/images/kadiyam-ornamental-plants.png', title: 'Ornamental plants and foliage', type: 'Ornamental plants' },
+  { src: '/images/kadiyam-nursery-plant-rows.png', title: 'Rows of plants across the nursery', type: 'Our nursery' },
   { src: '/images/nursery-front.png', title: 'Welcome to Sri Satyadeva Nursery', type: 'Our nursery' },
   { src: '/images/flower-beds.png', title: 'Rows of colour in bloom', type: 'Flowering plants' },
   { src: '/images/nursery-aerial-delivery.png', title: 'A nursery built to grow', type: 'Our nursery' },

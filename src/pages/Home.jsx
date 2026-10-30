@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react'
-import { ArrowDown, ArrowUpRight, Check, ChevronLeft, ChevronRight, Sprout, Truck, HeartHandshake, Leaf, MoveUpRight } from 'lucide-react'
+import { ArrowDown, ArrowUpRight, Check, ChevronLeft, ChevronRight, Sprout, Truck, HeartHandshake, Leaf, MoveUpRight, MessageCircle } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { plants } from '../data/plants'
-import { business } from '../config/business'
+import { business, getWhatsAppUrl } from '../config/business'
 import PlantCard from '../components/PlantCard'
 import '../styles/home-gallery.css'
 
 const heroSlides = [
+  { src: '/images/sri-satyadeva-nursery-aerial.png', label: 'Sri Satyadeva Nursery from above' },
   { src: '/images/flower-beds.png', label: 'Flowering plants growing in rows' },
   { src: '/images/nursery-landscape.png', label: 'Sri Satyadeva Nursery grounds' },
   { src: '/images/nursery-floral-display.png', label: 'Colourful display at the nursery' },
@@ -19,6 +20,7 @@ const heroSlides = [
 export default function Home() {
   const [activeSlide, setActiveSlide] = useState(0)
   const [isHeroPaused, setIsHeroPaused] = useState(false)
+  const whatsappUrl = getWhatsAppUrl(`Hello ${business.name}, I would like to enquire about your plants.`)
 
   useEffect(() => {
     if (isHeroPaused || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return undefined
@@ -39,7 +41,7 @@ export default function Home() {
         <div className="hero-kicker"><span></span> {business.type} · 150-acre nursery</div>
         <h1>Grow your green<br/><em>world.</em></h1>
         <p>Explore quality flowering, fruit, ornamental, avenue, indoor and outdoor plants for homes, gardens, landscaping projects, commercial spaces and wholesale. Visit our 150-acre nursery in Kadiyam to discuss your requirements.</p>
-        <div className="hero-actions"><Link className="button button-cream" to="/plants">Explore plants <ArrowUpRight size={18}/></Link><Link className="button button-glass" to="/order">Enquire about bulk orders</Link></div>
+        <div className="hero-actions"><Link className="button button-cream" to="/plants">Explore plants <ArrowUpRight size={18}/></Link><Link className="button button-glass" to="/order">Enquire about bulk orders</Link>{whatsappUrl && <a className="button button-glass" href={whatsappUrl} target="_blank" rel="noreferrer"><MessageCircle size={18}/> Message us on WhatsApp</a>}</div>
         <div className="hero-note"><span className="hero-note-icon"><Leaf size={18}/></span><span><strong>{business.rating} ★ · {business.reviewCount} Google reviews</strong><small>{business.proprietor}</small></span></div>
       </div>
       <a href="#categories" className="hero-scroll"><span>Scroll to explore</span><ArrowDown size={16}/></a>
@@ -112,11 +114,31 @@ export default function Home() {
           <img src="/images/aerial-nursery-plant-rows.png" alt="Aerial view of green plant rows and nursery delivery paths" loading="lazy"/>
           <span className="home-gallery-caption"><small>Our nursery</small><strong>Rows of nursery greenery</strong><ArrowUpRight size={18}/></span>
         </Link>
+        <Link className="home-gallery-card" to="/gallery">
+          <img src="/images/kadiyam-flowering-plants.png" alt="Colourful flowering plants growing in nursery pots" loading="lazy"/>
+          <span className="home-gallery-caption"><small>Flowering plants</small><strong>Colourful blooms at the nursery</strong><ArrowUpRight size={18}/></span>
+        </Link>
+        <Link className="home-gallery-card" to="/gallery">
+          <img src="/images/kadiyam-fruit-plants.png" alt="Young fruit trees growing in rows at the nursery" loading="lazy"/>
+          <span className="home-gallery-caption"><small>Fruit plants</small><strong>Fruit trees ready to grow</strong><ArrowUpRight size={18}/></span>
+        </Link>
+        <Link className="home-gallery-card" to="/gallery">
+          <img src="/images/kadiyam-ornamental-plants.png" alt="Ornamental plants and colourful foliage at the nursery" loading="lazy"/>
+          <span className="home-gallery-caption"><small>Ornamental plants</small><strong>Foliage for greener spaces</strong><ArrowUpRight size={18}/></span>
+        </Link>
+        <Link className="home-gallery-card" to="/gallery">
+          <img src="/images/sri-satyadeva-nursery-aerial.png" alt="Aerial view of Sri Satyadeva Nursery and its plant rows" loading="lazy"/>
+          <span className="home-gallery-caption"><small>Our nursery</small><strong>Our nursery grounds</strong><ArrowUpRight size={18}/></span>
+        </Link>
+        <Link className="home-gallery-card" to="/gallery">
+          <img src="/images/kadiyam-nursery-plant-rows.png" alt="Green plants arranged along pathways at the nursery" loading="lazy"/>
+          <span className="home-gallery-caption"><small>At the nursery</small><strong>Explore our growing spaces</strong><ArrowUpRight size={18}/></span>
+        </Link>
       </div>
     </div></section>
 
     <section className="values-section section-pad"><div className="container values-grid">
-      <div className="values-image"><img src="https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=1100&q=85" alt="Healthy potted plants in a garden setting" loading="lazy"/><div className="values-stamp"><Sprout size={25}/><span>Grow at<br/>your pace</span></div></div>
+      <div className="values-image"><img src="/images/kadiyam-ornamental-plants.png" alt="Ornamental plants and colourful foliage at Sri Satyadeva Nursery" loading="lazy"/><div className="values-stamp"><Sprout size={25}/><span>Grow at<br/>your pace</span></div></div>
       <div className="values-copy"><span className="eyebrow">THE WAY WE GROW</span><h2>Good plants.<br/><em>Thoughtful choices.</em></h2><p>Every space is different. We want to help you find plants that suit your garden, your plans and the care you can give them.</p>
         <div className="value-list"><div><span><Check size={17}/></span><div><strong>Choices for every space</strong><p>Explore options for indoor, outdoor and larger growing spaces.</p></div></div><div><span><Check size={17}/></span><div><strong>Guidance when you need it</strong><p>Ask about plant varieties, quantities and care requirements.</p></div></div><div><span><Check size={17}/></span><div><strong>Enquiries made simple</strong><p>Share your requirements directly through our order enquiry form.</p></div></div></div>
         <Link className="text-link" to="/services">Discover nursery services <ArrowUpRight size={17}/></Link>
