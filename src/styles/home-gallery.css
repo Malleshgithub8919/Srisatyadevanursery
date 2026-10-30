@@ -1,4 +1,6 @@
 .home-gallery-section{background:#eeefe6}
+.home-video-section{background:#faf9f5}
+.home-nursery-video{display:block;width:100%;max-height:680px;aspect-ratio:16/9;object-fit:contain;background:#14291d;border-radius:16px}
 .hero-slides{position:absolute;inset:0}
 .hero-slide{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 48%;opacity:0;transform:scale(1.035);transition:opacity 1s ease,transform 7s ease}
 .hero-slide.is-active{opacity:1;transform:scale(1)}
@@ -29,4 +31,6 @@
 @media(max-width:540px){.home-gallery-grid{grid-template-columns:1fr}}
 @media(max-width:420px){.home-gallery-card{height:270px}.home-gallery-caption strong{font-size:22px}}
 @media(max-width:760px){.hero-controls{right:18px;bottom:20px;gap:9px}.hero-controls>button{width:32px;height:32px}.hero-slide-indicators{gap:5px}.hero-slide-indicators button{width:6px;height:6px}.hero-slide-indicators button.is-active{width:17px}}
+@media(max-width:760px){.hero.hero{height:auto;min-height:0;max-height:none;align-items:flex-start;padding:46px 0 100px}.hero .hero-content{padding-bottom:0}.hero .hero-note{width:fit-content;max-width:calc(100% - 74px)}.hero .hero-controls{bottom:24px}}
+@media(max-width:360px){.hero .hero-actions .button{min-width:min(210px,calc(100vw - 120px));max-width:calc(100vw - 120px);padding-inline:10px;gap:7px;font-size:11px}}
 @media(prefers-reduced-motion:reduce){.hero-slide{transform:none;transition:opacity .01ms}}

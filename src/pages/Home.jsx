@@ -7,6 +7,11 @@ import PlantCard from '../components/PlantCard'
 import '../styles/home-gallery.css'
 
 const heroSlides = [
+  { src: '/images/nursery-kadiyam-aerial.jpg', label: 'Aerial view of the nursery office' },
+  { src: '/images/nursery-aerial-wide.jpg', label: 'A wide aerial view of Kadiyam nursery gardens' },
+  { src: '/images/nursery-aerial-overhead.jpg', label: 'Overhead view of the nursery plant rows' },
+  { src: '/images/nursery-entrance-opening.jpg', label: 'Sri Satyadeva Nursery entrance' },
+  { src: '/images/nursery-aerial-overview.jpg', label: 'Aerial view of Sri Satyadeva Nursery' },
   { src: '/images/sri-satyadeva-nursery-aerial.png', label: 'Sri Satyadeva Nursery from above' },
   { src: '/images/flower-beds.png', label: 'Flowering plants growing in rows' },
   { src: '/images/nursery-landscape.png', label: 'Sri Satyadeva Nursery grounds' },
@@ -53,6 +58,14 @@ export default function Home() {
       </div>
     </section>
 
+    <section className="home-video-section section-pad"><div className="container">
+      <div className="section-heading"><div><span className="eyebrow">TAKE A LOOK AROUND</span><h2>Visit Sri Satyadeva <em>Nursery.</em></h2></div><p>See our nursery, growing spaces and plant collection in this short video.</p></div>
+      <video className="home-nursery-video" controls playsInline preload="metadata" poster="/images/sri-satyadeva-office-banner.jpg" aria-label="Video tour of Sri Satyadeva Nursery">
+        <source src="/videos/sri-satyadeva-nursery-tour.mp4" type="video/mp4"/>
+        Your browser does not support HTML video.
+      </video>
+    </div></section>
+
     <section className="intro-section section-pad">
       <div className="container intro-grid">
         <div className="intro-label"><span className="eyebrow">WELCOME TO OUR NURSERY</span><span className="vertical-line"></span><span className="muted-small">Growing good things</span></div>
@@ -81,6 +94,38 @@ export default function Home() {
         <Link className="home-gallery-card" to="/plants">
           <img src="/images/colorful-foliage.png" alt="Colourful ornamental foliage at the nursery" loading="lazy"/>
           <span className="home-gallery-caption"><small>Ornamental plants</small><strong>Colourful nursery foliage</strong><ArrowUpRight size={18}/></span>
+        </Link>
+        <Link className="home-gallery-card" to="/gallery">
+          <img src="/images/sri-satyadeva-office-banner.jpg" alt="Sri Satyadeva Nursery grounds and Srikanth Office" loading="lazy"/>
+          <span className="home-gallery-caption"><small>Our nursery</small><strong>Visit Sri Satyadeva Nursery</strong><ArrowUpRight size={18}/></span>
+        </Link>
+        <Link className="home-gallery-card" to="/gallery">
+          <img src="/images/sri-satyadeva-office-entrance.jpg" alt="Aerial view of the Sri Satyadeva Nursery office entrance" loading="lazy"/>
+          <span className="home-gallery-caption"><small>Our nursery</small><strong>Welcome to our nursery</strong><ArrowUpRight size={18}/></span>
+        </Link>
+        <Link className="home-gallery-card" to="/gallery">
+          <img src="/images/nursery-aerial-grounds.jpg" alt="Aerial view of the nursery grounds and growing areas" loading="lazy"/>
+          <span className="home-gallery-caption"><small>Our nursery</small><strong>Nursery gardens from above</strong><ArrowUpRight size={18}/></span>
+        </Link>
+        <Link className="home-gallery-card" to="/gallery">
+          <img src="/images/nursery-tree-planting-ceremony.jpg" alt="Visitors planting a tree at the nursery" loading="lazy"/>
+          <span className="home-gallery-caption"><small>Nursery moments</small><strong>Growing greener together</strong><ArrowUpRight size={18}/></span>
+        </Link>
+        <Link className="home-gallery-card" to="/gallery">
+          <img src="/images/nursery-specimen-tree-1.jpg" alt="Large specimen trees for gardens and landscapes" loading="lazy"/>
+          <span className="home-gallery-caption"><small>Specimen trees</small><strong>Large trees for landscapes</strong><ArrowUpRight size={18}/></span>
+        </Link>
+        <Link className="home-gallery-card" to="/gallery">
+          <img src="/images/nursery-palm-trees.jpg" alt="Mature palms growing at Sri Satyadeva Nursery" loading="lazy"/>
+          <span className="home-gallery-caption"><small>Palm trees</small><strong>Mature palms ready to plant</strong><ArrowUpRight size={18}/></span>
+        </Link>
+        <Link className="home-gallery-card" to="/gallery">
+          <img src="/images/cassia-fistula-bloom.jpg" alt="Golden flowers on a Cassia fistula tree" loading="lazy"/>
+          <span className="home-gallery-caption"><small>Flowering trees</small><strong>Cassia fistula in bloom</strong><ArrowUpRight size={18}/></span>
+        </Link>
+        <Link className="home-gallery-card" to="/gallery">
+          <img src="/images/satyadeva-golden-chain.jpg" alt="Golden chain flowers growing among green leaves" loading="lazy"/>
+          <span className="home-gallery-caption"><small>Flowering trees</small><strong>Satyadeva golden chain</strong><ArrowUpRight size={18}/></span>
         </Link>
         <Link className="home-gallery-card" to="/gallery">
           <img src="/images/aerial-nursery-overview.png" alt="Aerial view of nursery growing areas and plant rows" loading="lazy"/>

@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react'
+import { useLocation } from 'react-router-dom'
 import { business, getWhatsAppUrl } from '../config/business'
 
 function WhatsAppIcon() {
@@ -18,7 +20,23 @@ function WhatsAppIcon() {
 }
 
 export default function WhatsAppButton() {
+  const { pathname } = useLocation()
+  const [heroVisible, setHeroVisible] = useState(false)
   const url = getWhatsAppUrl(`Hello ${business.name}, I would like to enquire about your plants.`)
+
+  useEffect(() => {
+    const hero = document.querySelector('.hero')
+    if (!hero) {
+      setHeroVisible(false)
+      return undefined
+    }
+
+    const observer = new IntersectionObserver(([entry]) => setHeroVisible(entry.isIntersecting))
+    observer.observe(hero)
+    return () => observer.disconnect()
+  }, [pathname])
+
+  if (heroVisible) return null
 
   return (
     <a
