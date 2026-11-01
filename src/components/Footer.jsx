@@ -1,3 +1,4 @@
+import { assetUrl } from '../utils/assets.js'
 import { Link } from 'react-router-dom'
 import { Leaf, MapPin, Phone, Mail, Instagram, Facebook, Youtube, ArrowUpRight } from 'lucide-react'
 import { business } from '../config/business'
@@ -6,7 +7,7 @@ export default function Footer() {
   return <footer className="site-footer">
     <div className="container footer-main">
       <div className="footer-brand">
-        <Link to="/" className="brand brand-light" aria-label={business.name}><img className="brand-logo" src="/images/nursery-logo-new.jpeg" alt="" /></Link>
+        <Link to="/" className="brand brand-light" aria-label={business.name}><img className="brand-logo" src={assetUrl("/images/nursery-logo-new.jpeg")} alt="" /></Link>
         <p>{business.tagline}</p>
         <div className="socials">
           {business.socialLinks.instagram && <a href={business.socialLinks.instagram} aria-label="Instagram"><Instagram size={18}/></a>}

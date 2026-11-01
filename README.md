@@ -25,6 +25,12 @@ npm run build
 npm run preview
 ```
 
+## GitHub Pages deployment
+Pushing to `main` builds and deploys the site to:
+`https://malleshgithub8919.github.io/Srisatyadevanursery/`
+
+In **Repository Settings → Pages**, select **GitHub Actions** as the build and deployment source once. The workflow configures the repository subpath for Vite assets and client-side routes. The first deployment may take a few minutes to appear.
+
 ## Configure before publishing
 Edit `src/config/business.js`:
 - Add the WhatsApp number with country code and digits only, for example `919876543210` (replace with the actual nursery number).
@@ -42,7 +48,7 @@ The current plant names, images, descriptions and categories are sample content.
 The order form validates required fields and opens WhatsApp with a pre-filled message. The customer must review and press **Send** in WhatsApp. A selected reference image is not uploaded automatically; the customer must attach it manually in WhatsApp.
 
 ## Image note
-Starter images use remote Unsplash image URLs and need an internet connection. Replace these with properly licensed, business-approved nursery photos for production use.
+Nursery, plant, and gallery photos are stored in `public/images` and are included in the site build. Decorative background photos and web fonts may still load from external services.
 
 ## Important limitations
 - This is a frontend starter; it does not save orders to a database or send automatic confirmations.
