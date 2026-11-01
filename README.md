@@ -29,7 +29,7 @@ npm run preview
 Pushing to `main` builds and deploys the site to:
 `https://malleshgithub8919.github.io/Srisatyadevanursery/`
 
-In **Repository Settings → Pages**, select **GitHub Actions** as the build and deployment source once. The workflow configures the repository subpath for Vite assets and client-side routes. The first deployment may take a few minutes to appear.
+In **Repository Settings → Pages**, select **GitHub Actions** as the build and deployment source once. After enabling Pages, push a commit to `main` or run **Deploy to GitHub Pages** from the Actions tab to start the first deployment. The workflow configures the repository subpath for Vite assets and client-side routes; deployment may take a few minutes.
 
 ## Configure before publishing
 Edit `src/config/business.js`:
