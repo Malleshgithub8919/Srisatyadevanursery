@@ -88,8 +88,48 @@ const photos = [
 ]
 export default function Gallery() {
   const [active, setActive] = useState(null)
-  return <><section className="page-hero page-hero-gallery"><div className="container"><span className="eyebrow">GREEN INSPIRATION</span><h1>A gallery that <em>grows.</em></h1><p>Explore plant and garden imagery to spark ideas for your own green space.</p><div className="breadcrumbs"><Link to="/">Home</Link><span>/</span><span>Gallery</span></div></div></section>
-    <section className="section-pad"><div className="container"><div className="gallery-intro"><p>Take a closer look at Sri Satyadeva Nursery, from our growing spaces and garden displays to the plants we care for.</p><Link className="text-link" to="/contact">Share a gallery enquiry <ArrowUpRight size={16}/></Link></div><div className="gallery-grid">{photos.map((photo, i) => <button className={`gallery-tile gallery-tile-${i+1}`} key={photo.src} onClick={() => setActive(photo)} aria-label={`View ${photo.title}`}><img src={photo.src} alt={photo.title} loading="lazy"/><span className="gallery-caption"><small>{photo.type}</small><strong>{photo.title}</strong><ArrowUpRight size={18}/></span></button>)}</div></div></section>
+  return <>
+    <section className="page-hero page-hero-gallery" style={{ backgroundImage: `url(${assetUrl('/images/flower-beds.png')})` }}>
+      <div className="container">
+        <span className="eyebrow">GREEN INSPIRATION</span>
+        <h1>A gallery that <em>grows.</em></h1>
+        <p>Explore plant and garden imagery to spark ideas for your own green space.</p>
+        <div className="breadcrumbs">
+          <Link to="/">Home</Link>
+          <span>/</span>
+          <span>Gallery</span>
+        </div>
+      </div>
+    </section>
+    <section className="section-pad">
+      <div className="container">
+        <div className="gallery-intro">
+          <p>Take a closer look at Sri Satyadeva Nursery, from our growing spaces and garden displays to the plants we care for.</p>
+          <Link className="text-link" to="/contact">Share a gallery enquiry <ArrowUpRight size={16}/></Link>
+        </div>
+        <div className="gallery-grid">
+          {photos.map((photo, i) => (
+            <button className={`gallery-tile gallery-tile-${i+1}`} key={photo.src} onClick={() => setActive(photo)} aria-label={`View ${photo.title}`}>
+              <img
+                src={photo.src}
+                alt={photo.title}
+                loading="lazy"
+                onError={(e) => {
+                  e.currentTarget.onerror = null
+                  e.currentTarget.src = assetUrl('/images/nursery-landscape.png')
+                }}
+              />
+              <span className="gallery-caption">
+                <small>{photo.type}</small>
+                <strong>{photo.title}</strong>
+                <ArrowUpRight size={18}/>
+              </span>
+            </button>
+          ))}
+        </div>
+      </div>
+    </section>
+
     {active && <div className="lightbox" role="dialog" aria-modal="true" aria-label={active.title} onClick={() => setActive(null)}><button className="lightbox-close" onClick={() => setActive(null)} aria-label="Close image"><X/></button><img src={active.src} alt={active.title}/><p>{active.title}</p></div>}
   </>
 }

@@ -5,6 +5,7 @@ import { plants } from '../data/plants'
 import { categories } from '../data/categories'
 import PlantCard from '../components/PlantCard'
 import PlantCategoryCard from '../components/PlantCategoryCard'
+import { assetUrl } from '../utils/assets.js'
 import '../styles/plant-categories.css'
 
 export default function Plants() {
@@ -21,7 +22,20 @@ export default function Plants() {
     document.getElementById('plant-catalogue')?.scrollIntoView({ behavior: 'smooth' })
   }
   const filtered = useMemo(() => plants.filter(p => (category === 'All plants' || p.category === category) && `${p.name} ${p.category} ${p.description}`.toLowerCase().includes(query.toLowerCase())), [category, query])
-  return <><section className="page-hero page-hero-plants"><div className="container"><span className="eyebrow">THE PLANT COLLECTION</span><h1>Find a little <em>green.</em></h1><p>Browse the sample collection and enquire about the plants that fit your space.</p><div className="breadcrumbs"><Link to="/">Home</Link><span>/</span><span>Plants</span></div></div></section>
+  return <>
+    <section className="page-hero page-hero-plants" style={{ backgroundImage: `url(${assetUrl('/images/colorful-shrubs.png')})` }}>
+      <div className="container">
+        <span className="eyebrow">THE PLANT COLLECTION</span>
+        <h1>Find a little <em>green.</em></h1>
+        <p>Browse the sample collection and enquire about the plants that fit your space.</p>
+        <div className="breadcrumbs">
+          <Link to="/">Home</Link>
+          <span>/</span>
+          <span>Plants</span>
+        </div>
+      </div>
+    </section>
+
     <section className="section-pad plant-category-section"><div className="container">
       <div className="section-heading"><div><span className="eyebrow">SHOP BY CATEGORY</span><h2>Find the right <em>plants.</em></h2></div><p>Choose a category to explore the catalogue, or start an order enquiry for that category.</p></div>
       <div className="category-grid">{categories.map((item, index) => <PlantCategoryCard key={item.name} category={item} index={index} selected={category === item.name} onSelect={selectCategory}/>)}</div>
