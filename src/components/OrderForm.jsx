@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import { Plus, Trash2, MessageCircle, Leaf, CheckCircle2 } from 'lucide-react'
 import { business, getWhatsAppUrl } from '../config/business'
 import { categories } from '../data/categories'
@@ -7,8 +8,11 @@ import { plants } from '../data/plants'
 const blankItem = () => ({ category: '', plant: '', quantity: 1 })
 
 export default function OrderForm() {
+  const [searchParams] = useSearchParams()
+  const requestedCategory = searchParams.get('category')
+  const initialCategory = categories.some(category => category.name === requestedCategory) ? requestedCategory : ''
   const [customer, setCustomer] = useState({ name: '', mobile: '', whatsapp: '', email: '', state: '', city: '', pincode: '', address: '', orderType: 'Retail', deliveryDate: '', notes: '' })
-  const [items, setItems] = useState([blankItem()])
+  const [items, setItems] = useState([{ ...blankItem(), category: initialCategory }])
   const [error, setError] = useState('')
   const [notice, setNotice] = useState('')
   const [attachment, setAttachment] = useState(null)
@@ -87,8 +91,8 @@ export default function OrderForm() {
     <div className="order-items">
       {items.map((item, index) => {
         const options = plants.filter(p => !item.category || p.category === item.category)
-        return <div className="order-item" key={index}>
-          <div className="order-item-top"><strong>Item {index + 1}</strong>{items.length > 1 && <button type="button" className="remove-item" onClick={() => removeItem(index)}><Trash2 size={15}/> Remove</button>}</div>
+        return <div className={`order-item${item.category ? ' has-selected-category' : ''}`} key={index}>
+          <div className="order-item-top"><strong>Item {index + 1}</strong>{item.category && <span className="selected-category-badge">Category: {item.category}</span>}{items.length > 1 && <button type="button" className="remove-item" onClick={() => removeItem(index)}><Trash2 size={15}/> Remove</button>}</div>
           <div className="form-grid item-grid">
             <label>Plant category <b>*</b><select value={item.category} onChange={e => updateItem(index, 'category', e.target.value)}><option value="">Select category</option>{categories.map(c => <option key={c.name}>{c.name}</option>)}</select></label>
             <label>Plant name <b>*</b><select value={item.plant} onChange={e => updateItem(index, 'plant', e.target.value)}><option value="">Select plant</option>{options.map(p => <option key={p.id} value={p.name}>{p.name}</option>)}<option value="Other plant (please discuss)">Other plant (please discuss)</option></select></label>
